@@ -1,6 +1,7 @@
 package com.example.myapplication.controller;
 
 import com.example.myapplication.model.Brand;
+import com.example.myapplication.model.Gender;
 import com.example.myapplication.model.Product;
 import com.example.myapplication.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +49,8 @@ public class ProductController {
     }
 
     @GetMapping("/category")
-    public List<Product> getAllProductByBrand(@RequestParam(name="brand", required = false) Brand brand){
-        return productService.getAllProductByBrand(brand);
+    public List<Product> getAllProductsByBrandAndGender(@RequestParam(name="brand", required = false) Brand brand, @RequestParam(name="gender", required = false)Gender gender){
+        return productService.getAllProductsByBrandAndGender(brand,gender);
     }
 
 }

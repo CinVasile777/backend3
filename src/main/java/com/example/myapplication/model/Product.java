@@ -34,7 +34,9 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private Brand brand;
     private String belt;
-    private String gender;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     private String battery;
 
     private UUID modelCode = UUID.randomUUID();

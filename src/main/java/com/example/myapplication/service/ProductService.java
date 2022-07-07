@@ -41,9 +41,10 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    public List<Product> getAllProductByBrand(final Enum brand) {
+    public List<Product> getAllProductsByBrandAndGender(final Enum brand,Enum gender) {
         return productRepository.findAll()
                 .stream().filter(product -> product.getBrand().equals(brand))
+                .filter(product -> product.getGender().equals(gender))
                 .toList();
     }
 }

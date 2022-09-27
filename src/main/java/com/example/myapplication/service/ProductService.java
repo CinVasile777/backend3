@@ -14,13 +14,14 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public void addProduct(Product product) {
+    public Object addProduct(Product product) {
         Optional<Product> productOptional = productRepository.findById(product.getId());
         if (productOptional.isPresent()) {
             throw new IllegalArgumentException("Product already exist");
         }
 
-        productRepository.save(product);
+
+        return productRepository.save(product);
     }
 
     public List<Product> getAllProducts() {
